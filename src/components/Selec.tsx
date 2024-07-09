@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-function Select() {
+function Selec() {
   return (
     <div className="min-h-screen bg-gradient-to-r from-black to-blue-900 text-white flex flex-col items-center p-4">
       <header className="w-full flex justify-between items-center p-4">
@@ -53,7 +53,7 @@ function Select() {
         </div>
       </main>
     </div>
-  );
+  )
 }
 
-export default Select;
+export default Selec

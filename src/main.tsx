@@ -5,8 +5,7 @@ import '@/styles/globals.css';
 import { Landing } from '@/components/landing';
 import { ArweaveWalletKit } from "@arweave-wallet-kit/react";
 import ArConnectStrategy from "@arweave-wallet-kit/arconnect-strategy";
-import { Select } from '@/components/Select';
-
+import Selec from '@/components/Selec';
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <ArweaveWalletKit
@@ -26,6 +25,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <BrowserRouter>
     <Routes>
     <Route path="/" element={<Landing/>} />
+    <Route path="/select" element={<Selec/>} />
     </Routes>
     </BrowserRouter>
     </ArweaveWalletKit>
