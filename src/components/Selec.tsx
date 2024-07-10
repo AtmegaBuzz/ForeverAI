@@ -1,19 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { ConnectButton, useConnection } from '@arweave-wallet-kit/react';
-import { useNavigate } from 'react-router-dom'; // Updated import
+import { useNavigate } from 'react-router-dom';
 
-interface SelectProps {
-
-}
-
+interface SelectProps {}
 
 const Selec: React.FC<SelectProps> = () => {
-
   const { connected } = useConnection();
   const [selectedLLM, setSelectedLLM] = useState<string | null>(null);
-  const [models,setModels] = useState<any>({});
+  const [models, setModels] = useState<any>({});
 
-  const navigate = useNavigate(); // Updated to use useNavigate
+  const navigate = useNavigate();
 
   const handleLLMClick = (llmName: string) => {
     setSelectedLLM(llmName);
@@ -21,36 +17,21 @@ const Selec: React.FC<SelectProps> = () => {
 
   const navigateNextPage = () => {
     if (selectedLLM) {
-        navigate('/tune', { state: { llmName: selectedLLM } })// Updated to use navigate function
+      navigate('/tune', { state: { llmName: selectedLLM } });
     } else {
       alert('Please select an LLM first.');
     }
   };
 
-  if (!connected) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <ConnectButton profileModal={true} showBalance={false} showProfilePicture={true} />
-      </div>
-    );
-  }
-
-
   const fetchModels = async () => {
-
     const resp = await fetch("http://localhost:3001/api/get-models");
-
-    const jsn = resp.json();
-
+    const jsn = await resp.json(); // Correctly await the JSON conversion
     setModels(jsn);
-    console.log(models);
-    
-  }
+  };
 
-  useEffect(()=> {
-
-  }, [])
-
+  useEffect(() => {
+    fetchModels(); // Call fetchModels inside useEffect
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-black to-blue-900 text-white flex flex-col items-center p-4">
@@ -60,8 +41,8 @@ const Selec: React.FC<SelectProps> = () => {
           <span className="text-xl font-bold">Select LLM</span>
         </div>
         <nav className="flex space-x-4">
-          <a href="#" className="text-white hover:text-zinc-300">Home</a>
-          <a href="#" className="text-white hover:text-zinc-300">About</a>
+          <a href="/" className="text-white hover:text-zinc-300">Home</a>
+          <a href="/about" className="text-white hover:text-zinc-300">About</a>
           <a href="#" className="hover:text-black">
             <ConnectButton profileModal={true} showBalance={false} showProfilePicture={true} />
           </a>

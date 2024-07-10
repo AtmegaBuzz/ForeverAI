@@ -10,10 +10,10 @@ export function Landing() {
           <span className="text-xl font-bold">Malboro.AI</span>
         </div>
         <nav className="flex items-center space-x-6">
-          <a href="#" className="text-lg">
+          <a href="/" className="text-lg">
             Home
           </a>
-          <a href="#" className="text-lg">
+          <a href="/about" className="text-lg">
             About
           </a>
           <a href="#" className="text-lg border border-white px-4 py-1 rounded">

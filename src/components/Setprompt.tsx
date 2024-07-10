@@ -27,8 +27,8 @@ function Setprompt() {
           <span className="text-xl font-bold">Malboro.AI</span>
         </div>
         <nav className="flex space-x-4">
-          <a href="#" className="hover:underline">Home</a>
-          <a href="#" className="hover:underline">About</a>
+          <a href="/">Home</a>
+          <a href="/about" className="hover:underline">About</a>
           <a href="#" className="border border-white px-3 py-1 rounded hover:bg-white hover:text-black">Wallet</a>
         </nav>
       </header>
@@ -52,7 +52,7 @@ function Setprompt() {
                     <input
                         type="text"
                         className="w-full bg-transparent border-none outline-none text-center"
-                        placeholder="Enter your prompt here..."
+                        placeholder="You are a helpful AI assistant..."
                         style={{ height: '50px' }}
                         value={inputValue}
                         onChange={(e) => setInputValue(e.target.value)}
