@@ -17,17 +17,27 @@ function Chat() {
   };
 
   const fetchApiResponse = async () => {
-    const response = await new Promise<{ text: string }>((resolve) =>
-      setTimeout(() => resolve({ text: "This is a response from the API." }), 2000)
-    );
-    return response.text;
+    const resp = await fetch("http://localhost:3000/api/generate-prompt", {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        "prompt": inputValue.toString(),
+        "tokens": "20"
+    })
+    });
+    const jsn = await resp.json();
+    console.log(jsn)
+
+    return jsn.data;
   };
+
 
   const handleSendClick = async () => {
     if (inputValue.trim() !== '') {
       setMessages([...messages, { text: inputValue, sender: 'user' }]);
-      setInputValue('');
       setIsApiCallInProgress(true);
+
+      setInputValue('');
       const apiResponse = await fetchApiResponse();
       setMessages((prevMessages) => [...prevMessages, { text: apiResponse, sender: 'api' }]);
       setIsApiCallInProgress(false);
@@ -52,7 +62,7 @@ function Chat() {
           <span className="font-bold text-xl">Malbora-AI</span>
         </div>
         <nav className="space-x-6">
-        <button className="bg-blue-500 p-2 rounded-full" onClick={handleViewApiClick}>
+          <button className="bg-blue-500 p-2 rounded-full" onClick={handleViewApiClick}>
             View API
           </button>
           <a href="#" className="hover:underline">Home</a>
@@ -61,7 +71,7 @@ function Chat() {
         </nav>
       </div>
       <div className="bg-black bg-opacity-50 p-6 rounded-lg shadow-lg">
-      <div className="bg-black bg-opacity-70 p-4 rounded-lg border border-zinc-700 min-h-[600px]">        <div className="text-center mb-4 text-lg font-semibold">Custom chat</div>
+        <div className="bg-black bg-opacity-70 p-4 rounded-lg border border-zinc-700 min-h-[600px]">        <div className="text-center mb-4 text-lg font-semibold">Custom chat</div>
           <div className="space-y-4">
             {messages.map((message, index) => (
               <div key={index} className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}>

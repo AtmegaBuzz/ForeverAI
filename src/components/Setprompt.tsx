@@ -35,42 +35,42 @@ function Setprompt() {
     setLoading(true);
     setLoadingMsg("Tuning memory...");
 
-    const resp = await fetch("http://localhost:3000/api/set-context", {
-      method: "POST",
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        "tune_prompt": inputValue
-      })
-    });
-    const jsn = await resp.json();
-    console.log(jsn)
+    // const resp = await fetch("http://localhost:3000/api/set-context", {
+    //   method: "POST",
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({
+    //     "tune_prompt": inputValue
+    //   })
+    // });
+    // const jsn = await resp.json();
+    // console.log(jsn)
     setLoading(false);
-    console.log(resp.status)
-    if (resp.status !== 201) {
-      toast({
-        title: "Model Loaded",
-        variant: "default",
-        description: "Context Loaded to the memory",
-        action: (
-          <ToastAction altText="Close">Undo</ToastAction>
-        ),
-      })
+    // console.log(resp.status)
+    // if (resp.status !== 201) {
+    //   toast({
+    //     title: "Model Loaded",
+    //     variant: "default",
+    //     description: "Context Loaded to the memory",
+    //     action: (
+    //       <ToastAction altText="Close">Undo</ToastAction>
+    //     ),
+    //   })
 
       navigate('/chat');
 
       return true
-    } else {
-      toast({
-        title: "Model failed to Loaded",
-        description: "Something went wrong",
-        variant: "destructive",
-        action: (
-          <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
-        ),
-      })
+    // } else {
+    //   toast({
+    //     title: "Model failed to Loaded",
+    //     description: "Something went wrong",
+    //     variant: "destructive",
+    //     action: (
+    //       <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
+    //     ),
+    //   })
 
-      return false
-    }
+    //   return false
+    // }
 
   };
 
