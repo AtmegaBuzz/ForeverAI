@@ -1,25 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { ConnectButton, useConnection } from '@arweave-wallet-kit/react';
 import { useNavigate } from 'react-router-dom';
-<<<<<<< HEAD
-
-interface SelectProps {}
-=======
 import { useAtom } from 'jotai';
 import { isLoadingAtom, loadingMsgAtom } from '@/atoms/globalAtom';
 import { useToast } from './ui/use-toast';
 import { ToastAction } from '@radix-ui/react-toast';
 
 interface SelectProps { }
->>>>>>> f7e0e63 (load model integration)
 
 const Selec: React.FC<SelectProps> = () => {
   const { connected } = useConnection();
   const [selectedLLM, setSelectedLLM] = useState<string | null>(null);
-<<<<<<< HEAD
-  const [models, setModels] = useState<any>({});
-
-=======
   const [loading,setLoading] = useAtom(isLoadingAtom);
   const [loadingMsg, setLoadingMsg] = useAtom(loadingMsgAtom);
   const { toast } = useToast()
@@ -36,7 +27,6 @@ const Selec: React.FC<SelectProps> = () => {
   }
 
 
->>>>>>> f7e0e63 (load model integration)
   const navigate = useNavigate();
 
   const handleLLMClick = (llmName: string) => {
@@ -46,14 +36,10 @@ const Selec: React.FC<SelectProps> = () => {
   const navigateNextPage = async () => {
 
     if (selectedLLM) {
-<<<<<<< HEAD
-      navigate('/tune', { state: { llmName: selectedLLM } });
-=======
       let res = await loadModel();
       if (res == true) {
         navigate('/tune', { state: { llmName: selectedLLM } });
       }
->>>>>>> f7e0e63 (load model integration)
     } else {
       toast({
         title: "Select LLM",
@@ -67,17 +53,6 @@ const Selec: React.FC<SelectProps> = () => {
 
   };
 
-<<<<<<< HEAD
-  const fetchModels = async () => {
-    const resp = await fetch("http://localhost:3001/api/get-models");
-    const jsn = await resp.json(); // Correctly await the JSON conversion
-    setModels(jsn);
-  };
-
-  useEffect(() => {
-    fetchModels(); // Call fetchModels inside useEffect
-  }, []);
-=======
   const entries = Object.entries(AdmissableList).map(([key, val]) => (
     <button onClick={() => handleLLMClick(key)} className="bg-blue-700 text-white py-2 px-4 rounded hover:scale-105">{key}</button>
   ));
@@ -126,7 +101,6 @@ const Selec: React.FC<SelectProps> = () => {
   // useEffect(() => {
   //   fetchModels(); // Call fetchModels inside useEffect
   // }, []);
->>>>>>> f7e0e63 (load model integration)
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-black to-blue-900 text-white flex flex-col items-center p-4">
