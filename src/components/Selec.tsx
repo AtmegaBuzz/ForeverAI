@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { ConnectButton, useConnection } from '@arweave-wallet-kit/react';
+import React, { useState } from 'react';
+import { ConnectButton } from '@arweave-wallet-kit/react';
 import { useNavigate } from 'react-router-dom';
 import { useAtom } from 'jotai';
 import { isLoadingAtom, loadingMsgAtom } from '@/atoms/globalAtom';
@@ -9,10 +9,9 @@ import { ToastAction } from '@radix-ui/react-toast';
 interface SelectProps { }
 
 const Selec: React.FC<SelectProps> = () => {
-  const { connected } = useConnection();
   const [selectedLLM, setSelectedLLM] = useState<string | null>(null);
-  const [loading,setLoading] = useAtom(isLoadingAtom);
-  const [loadingMsg, setLoadingMsg] = useAtom(loadingMsgAtom);
+  const [,setLoading] = useAtom(isLoadingAtom);
+  const [, setLoadingMsg] = useAtom(loadingMsgAtom);
   const { toast } = useToast()
 
   const AdmissableList =
@@ -53,7 +52,7 @@ const Selec: React.FC<SelectProps> = () => {
 
   };
 
-  const entries = Object.entries(AdmissableList).map(([key, val]) => (
+  const entries = Object.entries(AdmissableList).map(([key,]) => (
     <button onClick={() => handleLLMClick(key)} className="bg-blue-700 text-white py-2 px-4 rounded hover:scale-105">{key}</button>
   ));
 

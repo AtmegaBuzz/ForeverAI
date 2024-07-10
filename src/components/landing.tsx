@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import back from "../assets/back.png";
 import { ConnectButton } from "@arweave-wallet-kit/react";
 

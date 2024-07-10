@@ -12,8 +12,8 @@ import Chat from './components/Chat';
 function App() {
 
 
-  const [loading,setLoading] = useAtom(isLoadingAtom);
-  const [loadingMsg, setLoadingMsg] = useAtom(loadingMsgAtom);
+  const [loading,] = useAtom(isLoadingAtom);
+  const [loadingMsg, ] = useAtom(loadingMsgAtom);
 
   return (
     <>

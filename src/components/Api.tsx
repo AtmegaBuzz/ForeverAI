@@ -1,4 +1,3 @@
-import React from 'react';
 import { ConnectButton } from '@arweave-wallet-kit/react';
 
 function Api() {
