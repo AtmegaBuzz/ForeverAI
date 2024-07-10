@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ConnectButton, useConnection } from '@arweave-wallet-kit/react';
 import { useNavigate } from 'react-router-dom'; // Updated import
 
-function Selec() {
+interface SelectProps {
+
+}
+
+
+const Selec: React.FC<SelectProps> = () => {
+
   const { connected } = useConnection();
   const [selectedLLM, setSelectedLLM] = useState<string | null>(null);
+  const [models,setModels] = useState<any>({});
+
   const navigate = useNavigate(); // Updated to use useNavigate
 
   const handleLLMClick = (llmName: string) => {
@@ -27,6 +35,23 @@ function Selec() {
     );
   }
 
+
+  const fetchModels = async () => {
+
+    const resp = await fetch("http://localhost:3001/api/get-models");
+
+    const jsn = resp.json();
+
+    setModels(jsn);
+    console.log(models);
+    
+  }
+
+  useEffect(()=> {
+
+  }, [])
+
+
   return (
     <div className="min-h-screen bg-gradient-to-r from-black to-blue-900 text-white flex flex-col items-center p-4">
       <header className="w-full flex justify-between items-center p-4">
@@ -48,7 +73,7 @@ function Selec() {
           <div className="grid grid-cols-2 gap-4">
 
             {/* assume karr thah ki api uses llm  name instead of the ID  */}
-            <button onClick={() => handleLLMClick('Llama3 8B Instruct q8')} className="bg-blue-700 text-white py-2 px-4 rounded">Llama3 8B Instruct q8</button>
+            <button onClick={() => handleLLMClick('Llama3 8B Instruct q8')} className="bg-blue-700 text-white py-2 px-4 rounded hover:scale-105">Llama3 8B Instruct q8</button>
             <button onClick={() => handleLLMClick('GPT-2 117M model')} className="bg-blue-700 text-white py-2 px-4 rounded">GPT-2 117M model</button>
             <button onClick={() => handleLLMClick('GPT-2-XL 4-bit quantized model')} className="bg-blue-700 text-white py-2 px-4 rounded">GPT-2-XL 4-bit quantized model</button>
             <button onClick={() => handleLLMClick('Phi-2')} className="bg-blue-700 text-white py-2 px-4 rounded">Phi-2</button>
@@ -57,7 +82,7 @@ function Selec() {
             <button onClick={() => handleLLMClick('Llama3 8B Instruct q4')} className="bg-blue-700 text-white py-2 px-4 rounded">Llama3 8B Instruct q4</button>
           </div>
           <div className="flex justify-end mt-8">
-            <button onClick={navigateNextPage} className="border border-white p-2 rounded">
+            <button onClick={() => navigateNextPage()} className="border border-white p-2 rounded">
               <img src="https://openui.fly.dev/openui/24x24.svg?text=➡" alt="right arrow" />
             </button>
           </div>
