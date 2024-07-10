@@ -1,11 +1,24 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { ConnectButton, useConnection } from '@arweave-wallet-kit/react';
+import React, { useState } from 'react';
 
 
 function Setprompt() {
     const location = useLocation();
+    const navigate = useNavigate(); 
+    const { connected } = useConnection();
+    // Corrected to use useNavigate hook
+    const [inputValue, setInputValue] = useState('');
+
     const { llmName } = location.state || {};
     console.log(llmName);
+    if (!connected) {
+        return (
+          <div className="flex justify-center items-center min-h-screen">
+            <ConnectButton profileModal={true} showBalance={false} showProfilePicture={true} />
+          </div>
+        );
+      }
   return (
     <div className="min-h-screen bg-gradient-to-r from-black to-indigo-900 flex flex-col items-center justify-center text-white">
       <header className="absolute top-0 left-0 w-full flex items-center justify-between p-4">
@@ -34,24 +47,38 @@ function Setprompt() {
         </div>
 
         <h2 className="text-center text-xl mb-4">Set Instruction Prompt</h2>
+       
         <div className="border-dashed border-2 border-zinc-400 p-4 mb-4">
-  <input type="text" className="w-full bg-transparent border-none outline-none text-center" placeholder="Enter your prompt here..." style={{ height: '50px' }} />
-</div>
-<button 
-  className="bg-primary text-primary-foreground px-6 py-2 rounded hover:bg-primary/80 block mx-auto"
-  onClick={() => alert("Uploading larger prompts from local machine is reserved for paid users")}
->
-  Browse Computer
-</button>
-        
+                    <input
+                        type="text"
+                        className="w-full bg-transparent border-none outline-none text-center"
+                        placeholder="Enter your prompt here..."
+                        style={{ height: '50px' }}
+                        value={inputValue}
+                        onChange={(e) => setInputValue(e.target.value)}
+                    />
+                </div>
+                <button
+                    className="bg-primary text-primary-foreground px-6 py-2 rounded hover:bg-primary/80 block mx-auto"
+                    onClick={() => alert("Uploading larger prompts from local machine is reserved for paid users")}
+                >
+                    Browse Computer
+                </button>
 
-        <div className="flex justify-between mt-4">
-          <button className="border border-white p-2 rounded hover:bg-white hover:text-black">
-            <img aria-hidden="true" alt="Navigate left" src="https://openui.fly.dev/openui/24x24.svg?text=⬅️" />
-          </button>
-          <button className="border border-white p-2 rounded hover:bg-white hover:text-black">
-            <img aria-hidden="true" alt="Navigate right" src="https://openui.fly.dev/openui/24x24.svg?text=➡️" />
-          </button>
+                <div className="flex justify-between mt-4">
+                    <button
+                        className="border border-white p-2 rounded hover:bg-white hover:text-black"
+                        onClick={() => navigate('/select')}
+                    >
+                        <img aria-hidden="true" alt="Navigate left" src="https://openui.fly.dev/openui/24x24.svg?text=⬅️" />
+                    </button>
+                    <button
+                        className="border border-white p-2 rounded hover:bg-white hover:text-black"
+                        onClick={() => navigate('/chat')}
+                        disabled={!inputValue.trim()} // Disable button if inputValue is empty or only contains whitespace
+                    >
+                        <img aria-hidden="true" alt="Navigate right" src="https://openui.fly.dev/openui/24x24.svg?text=➡️" />
+                    </button>
         </div>
       </main>
     </div>

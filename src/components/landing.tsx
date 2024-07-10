@@ -29,7 +29,7 @@ export function Landing() {
       <main className="flex flex-col items-center justify-center flex-1 text-center">
   <h1 className="text-8xl font-bold mb-8 tracking-wider">One Stop Solution</h1> {/* Increased letter spacing */}
   <h2 className="text-8xl font-bold mb-8 tracking-wider">For All LLMs on AO</h2> {/* Increased letter spacing */}
-  <a href="#" className="text-lg border border-white px-6 py-3 rounded flex items-center space-x-2">
+  <a href="/select" className="text-lg border border-white px-6 py-3 rounded flex items-center space-x-2">
     <span>Get Started</span>
     <ArrowRightIcon className="h-4 w-4" />
   </a>
