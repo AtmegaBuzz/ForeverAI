@@ -1,7 +1,9 @@
+import { useEffect } from "react";
 import back from "../assets/back.png";
 import { ConnectButton } from "@arweave-wallet-kit/react";
 
 export function Landing() {
+
   return (
     <div style={{ backgroundImage: `url(${back})`, backgroundSize: 'cover', height: '100vh' }}>
       <header className="flex items-center justify-between p-6">
