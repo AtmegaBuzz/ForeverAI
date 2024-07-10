@@ -11,7 +11,7 @@ function Setprompt() {
       <header className="absolute top-0 left-0 w-full flex items-center justify-between p-4">
         <div className="flex items-center space-x-2">
           <img src="https://placehold.co/40x40" alt="Logo" className="w-10 h-10" />
-          <span className="text-xl font-bold">HillTop</span>
+          <span className="text-xl font-bold">Malboro.AI</span>
         </div>
         <nav className="flex space-x-4">
           <a href="#" className="hover:underline">Home</a>
