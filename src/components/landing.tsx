@@ -8,7 +8,7 @@ export function Landing() {
     <div style={{ backgroundImage: `url(${back})`, backgroundSize: 'cover', height: '100vh' }}>
       <header className="flex items-center justify-between p-6">
         <div className="flex items-center space-x-2">
-          <img src="/placeholder.svg" alt="Logo" className="h-10 w-10" />
+          <img src="public/logo.svg" alt="Logo" className="h-10 w-10" />
           <span className="text-xl font-bold">Malboro.AI</span>
         </div>
         <nav className="flex items-center space-x-6">

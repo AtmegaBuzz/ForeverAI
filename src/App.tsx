@@ -6,6 +6,8 @@ import Spinner from './components/ui/Spinner';
 import { isLoadingAtom, loadingMsgAtom } from './atoms/globalAtom';
 import { useAtom } from 'jotai';
 import { Toaster } from './components/ui/toaster';
+import Api from './components/Api';
+import Chat from './components/Chat';
 
 function App() {
 
@@ -24,6 +26,8 @@ function App() {
           <Route path="/" element={<Landing />} />
           <Route path="/select" element={<Selec />} />
           <Route path="/tune" element={<Setprompt />} />
+          <Route path="/chat" element={<Chat />} />
+        <Route path="/api" element={<Api />} />
         </Routes>
       </BrowserRouter>
 

@@ -103,22 +103,33 @@ const Selec: React.FC<SelectProps> = () => {
   // }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-black to-blue-900 text-white flex flex-col items-center p-4">
-      <header className="w-full flex justify-between items-center p-4">
+    <div className="min-h-screen bg-gradient-to-r from-black to-indigo-900 flex flex-col items-center justify-center text-white">      <header className="w-full flex justify-between items-center p-4">
         <div className="flex items-center">
-          <img src="https://placehold.co/40x40" alt="Logo" className="mr-2" />
-          <span className="text-xl font-bold">Select LLM</span>
+          <img src="public/logo.svg" alt="Logo" className="mr-2" />
+          <span className="text-xl font-bold">Malboro.AI</span>
         </div>
         <nav className="flex space-x-4">
           <a href="/" className="text-white hover:text-zinc-300">Home</a>
           <a href="/about" className="text-white hover:text-zinc-300">About</a>
-          <a href="#" className="hover:text-black">
-            <ConnectButton profileModal={true} showBalance={false} showProfilePicture={true} />
-          </a>
+          <a href="#" className="translate-y-[-10px] transition-transform">
+  <ConnectButton profileModal={true} showBalance={false} showProfilePicture={true} />
+</a>
         </nav>
       </header>
       <main className="flex-grow flex flex-col items-center justify-center">
-        <div className="bg-zinc-800 bg-opacity-80 p-8 rounded-lg shadow-lg w-full max-w-3xl" style={{ backdropFilter: 'blur(10px)' }}>
+        <div className="bg-black bg-opacity-50 p-8 rounded-lg shadow-lg w-full max-w-3xl" style={{ backdropFilter: 'blur(10px)' }}>
+        <div className="flex justify-center space-x-4 mb-8">
+          <div className="flex items-center space-x-2">
+            <div className="w-8 h-8 flex items-center justify-center rounded-full border border-primary text-primary">1</div>
+            <div className="w-16 border-t border-primary"></div>
+          </div>
+          <div className="flex items-center space-x-2">
+            <div className="w-8 h-8 flex items-center justify-center rounded-full border border-primary text-primary">2</div>
+            <div className="w-16 border-t border-primary"></div>
+          </div>
+          <div className="w-8 h-8 flex items-center justify-center rounded-full border border-primary text-primary">3</div>
+        </div>
+
           <h2 className="text-center text-2xl mb-6">Choose a LLM</h2>
           <p className="text-center text-md mb-6">Selected: {selectedLLM}</p>
           <div className="grid grid-cols-2 gap-4">
@@ -128,7 +139,7 @@ const Selec: React.FC<SelectProps> = () => {
             }
           </div>
           <div className="flex justify-end mt-8">
-            <button onClick={() => navigateNextPage()} className="border border-white p-2 rounded">
+            <button onClick={() => navigateNextPage()}  className="border border-white p-2 rounded hover:bg-white hover:text-black">
               <img src="https://openui.fly.dev/openui/24x24.svg?text=➡" alt="right arrow" />
             </button>
           </div>

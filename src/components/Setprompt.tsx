@@ -23,13 +23,15 @@ function Setprompt() {
     <div className="min-h-screen bg-gradient-to-r from-black to-indigo-900 flex flex-col items-center justify-center text-white">
       <header className="absolute top-0 left-0 w-full flex items-center justify-between p-4">
         <div className="flex items-center space-x-2">
-          <img src="https://placehold.co/40x40" alt="Logo" className="w-10 h-10" />
+          <img src="public/logo.svg" alt="Logo" className="w-10 h-10" />
           <span className="text-xl font-bold">Malboro.AI</span>
         </div>
         <nav className="flex space-x-4">
           <a href="/">Home</a>
           <a href="/about" className="hover:underline">About</a>
-          <a href="#" className="border border-white px-3 py-1 rounded hover:bg-white hover:text-black">Wallet</a>
+          <a href="#" className="translate-y-[-10px] transition-transform">
+  <ConnectButton profileModal={true} showBalance={false} showProfilePicture={true} />
+</a>
         </nav>
       </header>
 
