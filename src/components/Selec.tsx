@@ -13,7 +13,7 @@ function Selec() {
 
   const navigateNextPage = () => {
     if (selectedLLM) {
-        navigate('/next-page', { state: { llmName: selectedLLM } })// Updated to use navigate function
+        navigate('/tune', { state: { llmName: selectedLLM } })// Updated to use navigate function
     } else {
       alert('Please select an LLM first.');
     }
