@@ -1,16 +1,19 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import { ConnectButton, useConnection } from '@arweave-wallet-kit/react';
 import { useState } from 'react';
-// import { isLoadingAtom, loadingMsgAtom } from '@/atoms/globalAtom';
-// import { useAtom } from 'jotai';
+import { isLoadingAtom, loadingMsgAtom } from '@/atoms/globalAtom';
+import { useAtom } from 'jotai';
+import { useToast } from './ui/use-toast';
+import { ToastAction } from '@radix-ui/react-toast';
 
 
 function Setprompt() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // const [loading,setLoading] = useAtom(isLoadingAtom);
-  // const [loadingMsg, setLoadingMsg] = useAtom(loadingMsgAtom);
+  const [,setLoading] = useAtom(isLoadingAtom);
+  const [, setLoadingMsg] = useAtom(loadingMsgAtom);
+  const { toast } = useToast()
 
   const { connected } = useConnection();
   // Corrected to use useNavigate hook
@@ -26,46 +29,50 @@ function Setprompt() {
     );
   }
 
-  // const addContext = async (): Promise<boolean> => {
+  const addContext = async (): Promise<boolean> => {
 
-  //   setLoading(true);
-  //   setLoadingMsg("Tuning memory...");
 
-  //   const resp = await fetch("http://localhost:3000/api/set-context", {
-  //     method: "POST",
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify({
-  //       "tune_prompt": inputValue
-  //     })
-  //   });
+    setLoading(true);
+    setLoadingMsg("Tuning memory...");
 
-  //   setLoading(false);
-  //   console.log(resp.status)
-  //   if (resp.status !== 201) {
-  //     toast({
-  //       title: "Model Loaded",
-  //       variant: "default",
-  //       description: selectedLLM + " Loaded successfully into memory",
-  //       action: (
-  //         <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
-  //       ),
-  //     })
+    const resp = await fetch("http://localhost:3000/api/set-context", {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        "tune_prompt": inputValue
+      })
+    });
+    const jsn = await resp.json();
+    console.log(jsn)
+    setLoading(false);
+    console.log(resp.status)
+    if (resp.status !== 201) {
+      toast({
+        title: "Model Loaded",
+        variant: "default",
+        description: "Context Loaded to the memory",
+        action: (
+          <ToastAction altText="Close">Undo</ToastAction>
+        ),
+      })
 
-  //     return true
-  //   } else {
-  //     toast({
-  //       title: "Model failed to Loaded",
-  //       description: "Something went wrong",
-  //       variant: "destructive",
-  //       action: (
-  //         <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
-  //       ),
-  //     })
+      navigate('/chat');
 
-  //     return false
-  //   }
+      return true
+    } else {
+      toast({
+        title: "Model failed to Loaded",
+        description: "Something went wrong",
+        variant: "destructive",
+        action: (
+          <ToastAction altText="Goto schedule to undo">Undo</ToastAction>
+        ),
+      })
 
-  // };
+      return false
+    }
+
+  };
 
 
   return (
@@ -125,7 +132,7 @@ function Setprompt() {
           </button>
           <button
             className="border border-white p-2 rounded hover:bg-white hover:text-black"
-            onClick={() => navigate('/chat')}
+            onClick={() => addContext()}
             disabled={!inputValue.trim()} // Disable button if inputValue is empty or only contains whitespace
           >
             <img aria-hidden="true" alt="Navigate right" src="https://openui.fly.dev/openui/24x24.svg?text=➡️" />
