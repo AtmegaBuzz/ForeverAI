@@ -57,7 +57,7 @@ const Selec: React.FC<SelectProps> = () => {
     setLoading(true);
     setLoadingMsg("Loading LLM into memory...");
 
-    const resp = await fetch("http://localhost:3000/api/load-model", {
+    const resp = await fetch("https://4j0squmoo8i8w1-3000.proxy.runpod.net/api/load-model", {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

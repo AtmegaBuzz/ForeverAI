@@ -3,8 +3,6 @@ import { ConnectButton, useConnection } from '@arweave-wallet-kit/react';
 import { useState } from 'react';
 import { isLoadingAtom, loadingMsgAtom } from '@/atoms/globalAtom';
 import { useAtom } from 'jotai';
-import { useToast } from './ui/use-toast';
-import { ToastAction } from '@radix-ui/react-toast';
 
 
 function Setprompt() {
@@ -13,7 +11,6 @@ function Setprompt() {
 
   const [,setLoading] = useAtom(isLoadingAtom);
   const [, setLoadingMsg] = useAtom(loadingMsgAtom);
-  const { toast } = useToast()
 
   const { connected } = useConnection();
   // Corrected to use useNavigate hook
