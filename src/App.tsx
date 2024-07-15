@@ -8,6 +8,7 @@ import { useAtom } from 'jotai';
 import { Toaster } from './components/ui/toaster';
 import Api from './components/Api';
 import Chat from './components/Chat';
+import About from './components/About';
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/tune" element={<Setprompt />} />
           <Route path="/chat" element={<Chat />} />
         <Route path="/api" element={<Api />} />
+        <Route path="/about" element={<About />} />
         </Routes>
       </BrowserRouter>
 
