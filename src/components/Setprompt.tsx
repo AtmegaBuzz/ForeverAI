@@ -4,11 +4,14 @@ import { useState } from 'react';
 import { isLoadingAtom, loadingMsgAtom } from '@/atoms/globalAtom';
 import { useAtom } from 'jotai';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { NextButton } from './ui/Next';
 
 
 function Setprompt() {
+  const notify = () =>toast("We have removed the instruction fine-tuning feature for this demo. You can directly proceed to access the chat.");
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -117,9 +120,9 @@ function Setprompt() {
           />
         </div>
         <button
-          className="bg-primary text-primary-foreground px-6 py-2 rounded hover:bg-primary/80 block mx-auto"
-          onClick={() => alert("Uploading larger prompts from local machine is reserved for paid users")}
-        >
+  className="bg-primary text-primary-foreground px-6 py-2 rounded hover:bg-primary/80 block mx-auto"
+  onClick={notify}
+>
           Browse Computer
         </button>
 
@@ -138,6 +141,8 @@ function Setprompt() {
           </NextButton>
         </div>
       </main>
+      <ToastContainer />
+
     </div>
   );
 }
