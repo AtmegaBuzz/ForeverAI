@@ -5,6 +5,7 @@ import { useAtom } from 'jotai';
 import { isLoadingAtom, loadingMsgAtom } from '@/atoms/globalAtom';
 import { useToast } from './ui/use-toast';
 import { ToastAction } from '@radix-ui/react-toast';
+import { NextButton } from './ui/Next';
 
 interface SelectProps { }
 
@@ -97,7 +98,7 @@ const Selec: React.FC<SelectProps> = () => {
       <header className="w-full flex justify-between items-center p-4">
         <div className="flex items-center">
           <img src="/logo.svg" alt="Logo" className="mr-2" />
-          <span className="text-xl font-bold">Malboro.AI</span>
+          <span className="text-xl font-bold">ForeverAI</span>
         </div>
         <nav className="flex space-x-4">
           <Link to="/" className="text-white hover:text-zinc-300">Home</Link> {/* Replace href with Link to */}
@@ -127,9 +128,9 @@ const Selec: React.FC<SelectProps> = () => {
             {entries}
           </div>
           <div className="flex justify-end mt-8">
-            <button onClick={() => navigateNextPage()} className="border border-white p-2 rounded hover:bg-white hover:text-black">
-              <img src="https://openui.fly.dev/openui/24x24.svg?text=➡" alt="right arrow" />
-            </button>
+          <NextButton onClick={() => navigateNextPage()} className="border border-white p-2 rounded hover:bg-white hover:text-black">
+  
+            </NextButton>
           </div>
         </div>
       </main>

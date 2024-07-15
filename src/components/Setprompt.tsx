@@ -3,6 +3,9 @@ import { ConnectButton, useConnection } from '@arweave-wallet-kit/react';
 import { useState } from 'react';
 import { isLoadingAtom, loadingMsgAtom } from '@/atoms/globalAtom';
 import { useAtom } from 'jotai';
+import { Link } from 'react-router-dom';
+
+import { NextButton } from './ui/Next';
 
 
 function Setprompt() {
@@ -77,11 +80,11 @@ function Setprompt() {
       <header className="absolute top-0 left-0 w-full flex items-center justify-between p-4">
         <div className="flex items-center space-x-2">
           <img src="public/logo.svg" alt="Logo" className="w-10 h-10" />
-          <span className="text-xl font-bold">Malboro.AI</span>
+          <span className="text-xl font-bold">ForeverAI</span>
         </div>
         <nav className="flex space-x-4">
-          <a href="/">Home</a>
-          <a href="/about" className="hover:underline">About</a>
+        <Link to="/" className="text-lg">Home</Link>
+        <Link to="/about" className="text-lg">About</Link>
           <a href="#" className="translate-y-[-10px] transition-transform">
             <ConnectButton profileModal={true} showBalance={false} showProfilePicture={true} />
           </a>
@@ -121,19 +124,18 @@ function Setprompt() {
         </button>
 
         <div className="flex justify-between mt-4">
-          <button
-            className="border border-white p-2 rounded hover:bg-white hover:text-black"
-            onClick={() => navigate('/select')}
-          >
-            <img aria-hidden="true" alt="Navigate left" src="https://openui.fly.dev/openui/24x24.svg?text=⬅️" />
-          </button>
-          <button
+        <NextButton
+          className="border border-white p-2 rounded hover:bg-white hover:text-black transform rotate-180"
+           onClick={() => navigate('/select')}
+            >
+             </NextButton>
+          <NextButton
             className="border border-white p-2 rounded hover:bg-white hover:text-black"
             onClick={() => addContext()}
-            disabled={!inputValue.trim()} // Disable button if inputValue is empty or only contains whitespace
+            disabled={!inputValue.trim()}
           >
-            <img aria-hidden="true" alt="Navigate right" src="https://openui.fly.dev/openui/24x24.svg?text=➡️" />
-          </button>
+            
+          </NextButton>
         </div>
       </main>
     </div>

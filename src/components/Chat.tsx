@@ -1,5 +1,10 @@
 import { useState, ChangeEvent, KeyboardEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { SendButtonComponent } from  "../components/ui/Send"
+import { Button } from "@/components/ui/button"
+
+
 
 interface Message {
   text: string;
@@ -59,14 +64,14 @@ function Chat() {
       <div className="flex justify-between items-center mb-6">
         <div className="flex items-center space-x-2">
           <img src="public/logo.svg" alt="logo" className="h-6 w-6" />
-          <span className="font-bold text-xl">Malbora-AI</span>
+          <span className="font-bold text-xl">ForeverAI</span>
         </div>
         <nav className="space-x-6">
-          <button className="bg-blue-500 p-2 rounded-full" onClick={handleViewApiClick}>
+          <Button variant="secondary"onClick={handleViewApiClick}>
             View API
-          </button>
-          <a href="#" className="hover:underline">Home</a>
-          <a href="#" className="hover:underline">About</a>
+            </Button>
+          <Link to="/" className="text-lg">Home</Link>
+          <Link to="/about" className="text-lg">About</Link>
           <a href="#" className="border border-white px-3 py-1 rounded hover:bg-white hover:text-black">Wallet</a>
         </nav>
       </div>
@@ -94,9 +99,7 @@ function Chat() {
             onChange={handleInputChange}
             onKeyPress={handleKeyPress}
           />
-          <button className="bg-blue-500 p-2 rounded-full hover:bg-blue-600" onClick={handleSendClick}>
-            Send
-          </button>
+         <SendButtonComponent onClick={handleSendClick} />
         </div>
       </div>
     </div>
