@@ -15,8 +15,10 @@ export function Landing() {
     <div className="scrollableWithoutScrollbar" style={{ backgroundImage: `url(${back})`, backgroundSize: 'cover', height: '100vh' }}>
       <header className="flex items-center justify-between p-6">
         <div className="flex items-center space-x-2">
-          <img src="/logo.svg" alt="Logo" className="h-10 w-10" />
-          <span className="text-xl font-bold">ForeverAI</span>
+          <div>
+            <img src="/Logo.png" alt="Logo" className="h-20 w-20 rounded-2xl" />
+          </div>
+          <span className="text-xl font-bold">Forever AI</span>
         </div>
         <nav className="flex items-center space-x-6">
           <Link to="/" className="text-lg">Home</Link>

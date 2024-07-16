@@ -96,9 +96,11 @@ const Selec: React.FC<SelectProps> = () => {
   return (
     <div className="min-h-screen bg-gradient-to-r from-black to-indigo-900 flex flex-col items-center justify-center text-white">
       <header className="w-full flex justify-between items-center p-4">
-        <div className="flex items-center">
-          <img src="/logo.svg" alt="Logo" className="mr-2" />
-          <span className="text-xl font-bold">ForeverAI</span>
+        <div className="flex items-center space-x-2">
+          <div>
+            <img src="/Logo.png" alt="Logo" className="h-20 w-20 rounded-2xl" />
+          </div>
+          <span className="text-xl font-bold">Forever AI</span>
         </div>
         <nav className="flex space-x-4">
           <Link to="/" className="text-white hover:text-zinc-300">Home</Link> {/* Replace href with Link to */}

@@ -82,8 +82,10 @@ function Setprompt() {
     <div className="min-h-screen bg-gradient-to-r from-black to-indigo-900 flex flex-col items-center justify-center text-white">
       <header className="absolute top-0 left-0 w-full flex items-center justify-between p-4">
         <div className="flex items-center space-x-2">
-          <img src="public/logo.svg" alt="Logo" className="w-10 h-10" />
-          <span className="text-xl font-bold">ForeverAI</span>
+          <div>
+            <img src="/Logo.png" alt="Logo" className="h-20 w-20 rounded-2xl" />
+          </div>
+          <span className="text-xl font-bold">Forever AI</span>
         </div>
         <nav className="flex space-x-4">
         <Link to="/" className="text-lg">Home</Link>

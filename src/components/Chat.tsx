@@ -27,7 +27,7 @@ function Chat() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         "prompt": inputValue.toString(),
-        "tokens": "20"
+        "tokens": "50"
     })
     });
     const jsn = await resp.json();
@@ -63,8 +63,10 @@ function Chat() {
     <div className="min-h-screen bg-gradient-to-r from-black to-indigo-900 text-white p-6">
       <div className="flex justify-between items-center mb-6">
         <div className="flex items-center space-x-2">
-          <img src="public/logo.svg" alt="logo" className="h-6 w-6" />
-          <span className="font-bold text-xl">ForeverAI</span>
+          <div>
+            <img src="/Logo.png" alt="Logo" className="h-20 w-20 rounded-2xl" />
+          </div>
+          <span className="text-xl font-bold">Forever AI</span>
         </div>
         <nav className="space-x-6">
           <Button variant="secondary"onClick={handleViewApiClick}>

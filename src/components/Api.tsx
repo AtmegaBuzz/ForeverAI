@@ -9,9 +9,11 @@ function Api() {
   return (
     <div className="min-h-screen bg-gradient-to-r from-black to-indigo-900 flex flex-col items-center justify-start text-white">
       <nav className="w-full sticky top-0 z-50 flex justify-between items-center p-2 bg-gradient-to-r from-black to-indigo-900 mb-4">
-        <div>
-          <img src="public/logo.svg" alt="Logo" className="mr-2" />
-          <span className="text-xl font-bold">ForeverAI</span>
+        <div className="flex items-center space-x-2">
+          <div>
+            <img src="/Logo.png" alt="Logo" className="h-20 w-20 rounded-2xl" />
+          </div>
+          <span className="text-xl font-bold">Forever AI</span>
         </div>
         <div className="flex space-x-4">
           <Link to="/" className="text-lg">Home</Link>
