@@ -29,7 +29,7 @@ function Chat() {
       referrerPolicy: "unsafe-url",
       body: JSON.stringify({
         "prompt": inputValue.toString(),
-        "tokens": "50"
+        "tokens": "10"
     })
     });
     const jsn = await resp.json();
