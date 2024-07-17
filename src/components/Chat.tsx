@@ -23,7 +23,7 @@ function Chat() {
   };
 
   const fetchApiResponse = async () => {
-    const resp = await fetch("http://4.240.82.191:3000/api/generate-prompt", {
+    const resp = await fetch("https://b9be-4-240-82-191.ngrok-free.app/api/generate-prompt", {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
       referrerPolicy: "unsafe-url",
