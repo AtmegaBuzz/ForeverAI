@@ -26,6 +26,7 @@ function Chat() {
     const resp = await fetch("http://4.240.82.191:3000/api/generate-prompt", {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
+      referrerPolicy: "unsafe-url",
       body: JSON.stringify({
         "prompt": inputValue.toString(),
         "tokens": "50"

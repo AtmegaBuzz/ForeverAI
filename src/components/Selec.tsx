@@ -62,6 +62,7 @@ const Selec: React.FC<SelectProps> = () => {
     const resp = await fetch("http://4.240.82.191:3000/api/load-model", {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
+      referrerPolicy: "unsafe-url",
       body: JSON.stringify({
         "model": selectedLLM
       })
