@@ -64,7 +64,7 @@ const Selec: React.FC<SelectProps> = () => {
       headers: { 'Content-Type': 'application/json' },
       referrerPolicy: "unsafe-url",
       body: JSON.stringify({
-        "model": selectedLLM
+        "model": "jbx-H6aq7b3BbNCHlK50Jz9L-6pz9qmldrYXMwjqQVI"
       })
     });
 
