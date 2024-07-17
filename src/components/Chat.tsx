@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { SendButtonComponent } from  "../components/ui/Send"
 import { Button } from "@/components/ui/button"
+import Logo from "../assets/Logo.png";
 
 
 
@@ -64,7 +65,7 @@ function Chat() {
       <div className="flex justify-between items-center mb-6">
         <div className="flex items-center space-x-2">
           <div>
-            <img src="/Logo.png" alt="Logo" className="h-20 w-20 rounded-2xl" />
+            <img src={Logo} alt="Logo" className="h-20 w-20 rounded-2xl" />
           </div>
           <span className="text-xl font-bold">Forever AI</span>
         </div>

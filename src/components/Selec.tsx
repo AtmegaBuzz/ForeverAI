@@ -6,6 +6,7 @@ import { isLoadingAtom, loadingMsgAtom } from '@/atoms/globalAtom';
 import { useToast } from './ui/use-toast';
 import { ToastAction } from '@radix-ui/react-toast';
 import { NextButton } from './ui/Next';
+import Logo from "../assets/Logo.png";
 
 interface SelectProps { }
 
@@ -98,7 +99,7 @@ const Selec: React.FC<SelectProps> = () => {
       <header className="w-full flex justify-between items-center p-4">
         <div className="flex items-center space-x-2">
           <div>
-            <img src="/Logo.png" alt="Logo" className="h-20 w-20 rounded-2xl" />
+            <img src={Logo} alt="Logo" className="h-20 w-20 rounded-2xl" />
           </div>
           <span className="text-xl font-bold">Forever AI</span>
         </div>

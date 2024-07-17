@@ -4,6 +4,7 @@ import back from "../assets/back.png";
 import { ConnectButton } from "@arweave-wallet-kit/react";
 import About from './About';
 import { Arrow } from "./arrow";
+import Logo from "../assets/Logo.png";
 
 export function Landing() {
  
@@ -16,7 +17,7 @@ export function Landing() {
       <header className="flex items-center justify-between p-6">
         <div className="flex items-center space-x-2">
           <div>
-            <img src="/Logo.png" alt="Logo" className="h-20 w-20 rounded-2xl" />
+            <img src={Logo} alt="Logo" className="h-20 w-20 rounded-2xl" />
           </div>
           <span className="text-xl font-bold">Forever AI</span>
         </div>

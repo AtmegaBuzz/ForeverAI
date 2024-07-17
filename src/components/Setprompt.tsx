@@ -6,6 +6,7 @@ import { useAtom } from 'jotai';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Logo from "../assets/Logo.png";
 
 import { NextButton } from './ui/Next';
 
@@ -83,7 +84,7 @@ function Setprompt() {
       <header className="absolute top-0 left-0 w-full flex items-center justify-between p-4">
         <div className="flex items-center space-x-2">
           <div>
-            <img src="/Logo.png" alt="Logo" className="h-20 w-20 rounded-2xl" />
+            <img src={Logo} alt="Logo" className="h-20 w-20 rounded-2xl" />
           </div>
           <span className="text-xl font-bold">Forever AI</span>
         </div>

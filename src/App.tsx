@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import { Landing } from './components/landing';
 import Selec from './components/Selec';
 import Setprompt from './components/Setprompt';
@@ -22,7 +22,7 @@ function App() {
       
       <Spinner hidden={!loading} message={loadingMsg}/>
       <Toaster />
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/select" element={<Selec />} />
@@ -31,7 +31,7 @@ function App() {
         <Route path="/api" element={<Api />} />
         <Route path="/about" element={<About />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
 
     </>
   );

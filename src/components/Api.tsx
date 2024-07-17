@@ -2,7 +2,7 @@ import { ConnectButton } from '@arweave-wallet-kit/react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { useNavigate } from 'react-router-dom';
-
+import Logo from "../assets/Logo.png";
 
 function Api() {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ function Api() {
       <nav className="w-full sticky top-0 z-50 flex justify-between items-center p-2 bg-gradient-to-r from-black to-indigo-900 mb-4">
         <div className="flex items-center space-x-2">
           <div>
-            <img src="/Logo.png" alt="Logo" className="h-20 w-20 rounded-2xl" />
+            <img src={Logo} alt="Logo" className="h-20 w-20 rounded-2xl" />
           </div>
           <span className="text-xl font-bold">Forever AI</span>
         </div>
