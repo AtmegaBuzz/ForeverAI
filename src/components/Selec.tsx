@@ -59,7 +59,7 @@ const Selec: React.FC<SelectProps> = () => {
     setLoading(true);
     setLoadingMsg("Loading LLM into memory...");
 
-    const resp = await fetch("https://b9be-4-240-82-191.ngrok-free.app/api/load-model", {
+    const resp = await fetch("https://6c1d-4-240-82-191.ngrok-free.app/api/load-model", {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
       referrerPolicy: "unsafe-url",
